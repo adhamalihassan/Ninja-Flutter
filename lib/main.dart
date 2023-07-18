@@ -21,15 +21,7 @@ class Home extends StatelessWidget {
         centerTitle: true,
       ),
       body: Center(
-        child: Text(
-          'hello world!',
-          style: TextStyle(
-              fontSize: 20.0,
-              fontWeight: FontWeight.bold,
-              letterSpacing: 2.0,
-              color: Colors.grey[600],
-              fontFamily: 'IndieFlower'),
-        ),
+        child: Image.asset('assets/download.jpeg'),
       ),
       floatingActionButton: FloatingActionButton(
         child: Text('+'),
