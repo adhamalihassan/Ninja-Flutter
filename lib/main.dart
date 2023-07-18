@@ -12,16 +12,19 @@ class Home extends StatelessWidget {
         title: Text(
           'First App',
           style: TextStyle(
-            fontFamily: 'IndieFlower',
-            fontWeight: FontWeight.bold,
-            fontSize: 30.0
-          ),
+              fontFamily: 'IndieFlower',
+              fontWeight: FontWeight.bold,
+              fontSize: 30.0),
         ),
         backgroundColor: Colors.red[600],
         centerTitle: true,
       ),
-      body: Center(
-        child: Image.asset('assets/download.jpeg'),
+      body: Row(
+        children: <Widget>[
+          Expanded(
+            child: Image.asset('assets/download.jpeg'),
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(
