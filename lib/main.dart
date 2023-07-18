@@ -24,7 +24,10 @@ class Home extends StatelessWidget {
         child: Image.asset('assets/download.jpeg'),
       ),
       floatingActionButton: FloatingActionButton(
-        child: Text('+'),
+        child: Icon(
+          Icons.add,
+          color: Colors.white,
+        ),
         onPressed: () {},
         backgroundColor: Colors.red[600],
       ),
