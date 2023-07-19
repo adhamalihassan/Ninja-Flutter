@@ -4,7 +4,13 @@ void main() {
   runApp(MaterialApp(home: NinjaCard()));
 }
 
-class NinjaCard extends StatelessWidget {
+class NinjaCard extends StatefulWidget {
+
+  @override
+  State<NinjaCard> createState() => _NinjaCardState();
+}
+
+class _NinjaCardState extends State<NinjaCard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -94,6 +100,8 @@ class NinjaCard extends StatelessWidget {
           ],
         ),
       ),
-    );
+    );;
   }
 }
+
+
