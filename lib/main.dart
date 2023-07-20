@@ -1,117 +1,63 @@
 import 'package:flutter/material.dart';
+import 'quote.dart';
+import 'quote_card.dart';
 
 void main() {
   runApp(MaterialApp(home: NinjaCard()));
 }
 
 class NinjaCard extends StatefulWidget {
-
   @override
   State<NinjaCard> createState() => _NinjaCardState();
 }
 
 class _NinjaCardState extends State<NinjaCard> {
-  int ninjaLevel = 0;
+  List<Quote> quotes = [
+    Quote(
+      text: "Be yourself; everyone else is already taken.",
+      author: "Oscar Wilde",
+    ),
+    Quote(
+      text:
+          "Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.",
+      author: "Albert Einstein",
+    ),
+    Quote(
+      text:
+          "You know you're in love when you can't fall asleep because reality is finally better than your dreams.",
+      author: "Dr. Seuss",
+    ),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[900],
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        onPressed: () {
-          setState(() {
-            ninjaLevel+=1;
-          });
-        },
-        backgroundColor: Colors.grey[800],
-      ),
+      backgroundColor: Colors.grey[200],
       appBar: AppBar(
-        title: Text('Ninja ID Card'),
+        title: Text(
+          'Awesome Quotes',
+          style: TextStyle(fontFamily: 'IndieFlower'),
+        ),
         centerTitle: true,
-        backgroundColor: Colors.grey[850],
+        backgroundColor: Colors.redAccent,
         elevation: 0.0,
       ),
       body: Padding(
-        padding: EdgeInsets.fromLTRB(30.0, 40.0, 30.0, 0.0),
+        padding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 0.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Center(
-              child: CircleAvatar(
-                backgroundImage: AssetImage('assets/weasly.jpeg'),
-                radius: 50.0,
-              ),
-            ),
-            Divider(
-              height: 60.0,
-              color: Colors.grey[800],
-            ),
-            Text(
-              'Name'.toUpperCase(),
-              style: TextStyle(
-                color: Colors.grey,
-                letterSpacing: 2.0,
-              ),
-            ),
-            SizedBox(
-              height: 10.0,
-            ),
-            Text(
-              'Bonnie Wright',
-              style: TextStyle(
-                color: Colors.amberAccent[200],
-                letterSpacing: 2.0,
-                fontSize: 25.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(
-              height: 30.0,
-            ),
-            Text(
-              'Current Ninja Level'.toUpperCase(),
-              style: TextStyle(
-                color: Colors.grey,
-                letterSpacing: 2.0,
-              ),
-            ),
-            SizedBox(
-              height: 10.0,
-            ),
-            Text(
-              '$ninjaLevel',
-              style: TextStyle(
-                color: Colors.amberAccent[200],
-                letterSpacing: 2.0,
-                fontSize: 25.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(
-              height: 30.0,
-            ),
-            Row(
-              children: <Widget>[
-                Icon(
-                  Icons.email,
-                  color: Colors.grey[400],
-                ),
-                SizedBox(width: 10.0),
-                Text(
-                  'bonniewright@gmail.com',
-                  style: TextStyle(
-                    color: Colors.grey[400],
-                    letterSpacing: 1.0,
-                    fontSize: 18.0,
-                  ),
-                )
-              ],
-            )
-          ],
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: quotes.map((quote) {
+            return QuoteCard(
+                quote: quote,
+                delete: () {
+                  setState(() {
+                    quotes.remove(quote);
+                  });
+                });
+          }).toList(),
         ),
       ),
-    );;
+    );
+    ;
   }
 }
-
-
