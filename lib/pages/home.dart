@@ -13,6 +13,7 @@ class _HomeState extends State<Home> {
     print(ModalRoute?.of(context)?.settings?.arguments.runtimeType);
     data = ModalRoute?.of(context)?.settings?.arguments as Map;
     print(data);
+    print('adhamaaaa');
     String bgImage = data['isDaytime'] ? 'day.png' : 'night.png';
     return Scaffold(
         body: SafeArea(
